@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="preloader" aria-hidden="true"><span></span><p>Carregando galeria</p></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
@@ -27,7 +29,7 @@
       <a href="#contato">Contato</a>
     </nav>
 
-    <a class="header-cta" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20com%20a%20Codexa." target="_blank" rel="noopener">
+    <a class="header-cta magnetic" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20com%20a%20Codexa." target="_blank" rel="noopener">
       Solicitar orçamento
       <span>↗</span>
     </a>
@@ -54,13 +56,13 @@
         <p class="hero-text">Uma galeria minimalista com alguns projetos desenvolvidos para diferentes nichos, estilos e objetivos de negócio.</p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#galeria">Ver projetos <span>↓</span></a>
-          <a class="btn btn-secondary" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20vi%20a%20galeria%20de%20sites%20da%20Codexa%20e%20quero%20um%20projeto." target="_blank" rel="noopener">Criar meu site <span>↗</span></a>
+          <a class="btn btn-primary magnetic" href="#galeria">Ver projetos <span>↓</span></a>
+          <a class="btn btn-secondary magnetic" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20vi%20a%20galeria%20de%20sites%20da%20Codexa%20e%20quero%20um%20projeto." target="_blank" rel="noopener">Criar meu site <span>↗</span></a>
         </div>
       </div>
 
       <div class="hero-preview reveal">
-        <article class="featured-window">
+        <article class="featured-window tilt-card" data-tilt>
           <div class="window-top">
             <span></span><span></span><span></span>
             <small>Projeto em destaque</small>
@@ -77,7 +79,7 @@
       </div>
     </section>
 
-    <section class="metrics reveal" aria-label="Números da Codexa">
+    <section class="metrics reveal premium-hover" aria-label="Números da Codexa">
       <div>
         <strong>04</strong>
         <span>Projetos selecionados</span>
@@ -100,15 +102,15 @@
       </div>
 
       <div class="filters reveal" role="list" aria-label="Filtros de projetos">
-        <button class="filter active" data-filter="todos" type="button">Todos</button>
-        <button class="filter" data-filter="advocacia" type="button">Advocacia</button>
-        <button class="filter" data-filter="restaurante" type="button">Restaurante</button>
-        <button class="filter" data-filter="clinica" type="button">Clínica</button>
-        <button class="filter" data-filter="joias" type="button">Joias</button>
+        <button class="filter magnetic active" data-filter="todos" type="button">Todos</button>
+        <button class="filter magnetic" data-filter="advocacia" type="button">Advocacia</button>
+        <button class="filter magnetic" data-filter="restaurante" type="button">Restaurante</button>
+        <button class="filter magnetic" data-filter="clinica" type="button">Clínica</button>
+        <button class="filter magnetic" data-filter="joias" type="button">Joias</button>
       </div>
 
       <div class="project-grid">
-        <article class="project-card reveal" data-category="advocacia">
+        <article class="project-card reveal tilt-card" data-tilt data-category="advocacia">
           <div class="project-image">
             <div class="browser-dots"><span></span><span></span><span></span></div>
             <img src="assets/morais-associados.png" alt="Site Morais & Associados" />
@@ -124,7 +126,7 @@
           </div>
         </article>
 
-        <article class="project-card reveal project-card--wide" data-category="restaurante">
+        <article class="project-card reveal project-card--wide tilt-card" data-tilt data-category="restaurante">
           <div class="project-image">
             <div class="browser-dots"><span></span><span></span><span></span></div>
             <img src="assets/praticita.png" alt="Site Praticità restaurante italiano" />
@@ -140,7 +142,7 @@
           </div>
         </article>
 
-        <article class="project-card reveal" data-category="clinica">
+        <article class="project-card reveal tilt-card" data-tilt data-category="clinica">
           <div class="project-image">
             <div class="browser-dots"><span></span><span></span><span></span></div>
             <img src="assets/odonto-prime.png" alt="Site Odonto Prime Clínica Odontológica" />
@@ -156,7 +158,7 @@
           </div>
         </article>
 
-        <article class="project-card reveal project-card--wide" data-category="joias">
+        <article class="project-card reveal project-card--wide tilt-card" data-tilt data-category="joias">
           <div class="project-image">
             <div class="browser-dots"><span></span><span></span><span></span></div>
             <img src="assets/essenza-joias.png" alt="Site Essenza Joias" />
@@ -181,17 +183,17 @@
       </div>
 
       <div class="process-grid">
-        <article class="step reveal">
+        <article class="step reveal premium-hover">
           <span>01</span>
           <h3>Estratégia</h3>
           <p>Entendemos o nicho, o público e o objetivo principal do site antes de desenhar a experiência.</p>
         </article>
-        <article class="step reveal">
+        <article class="step reveal premium-hover">
           <span>02</span>
           <h3>Design</h3>
           <p>Criamos uma interface moderna, responsiva e alinhada com a identidade da marca.</p>
         </article>
-        <article class="step reveal">
+        <article class="step reveal premium-hover">
           <span>03</span>
           <h3>Implementação</h3>
           <p>Desenvolvemos o site com HTML, CSS e JS, buscando performance, animações e acabamento premium.</p>
@@ -199,13 +201,13 @@
       </div>
     </section>
 
-    <section class="cta reveal" id="contato">
+    <section class="cta reveal premium-hover" id="contato">
       <div>
         <span class="cta-icon">↗</span>
         <h2>Quer fazer parte dessa galeria?</h2>
         <p>Vamos criar um site moderno, rápido e com a cara da sua marca.</p>
       </div>
-      <a class="btn btn-primary" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20para%20minha%20marca." target="_blank" rel="noopener">
+      <a class="btn btn-primary magnetic" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20para%20minha%20marca." target="_blank" rel="noopener">
         Falar com especialista
         <span>↗</span>
       </a>
