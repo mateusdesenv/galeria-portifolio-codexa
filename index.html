@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codexa | Galeria de Sites</title>
+  <meta name="description" content="Galeria de sites desenvolvidos pela Codexa. Conheça projetos para advocacia, restaurantes, clínicas e marcas premium." />
+  <meta name="theme-color" content="#070b0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header" id="topo">
+    <a href="#topo" class="brand brand--logo" aria-label="Codexa">
+      <img src="assets/codexa_logo_200px.svg" alt="Codexa" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#projetos">Projetos</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <a class="header-cta" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20com%20a%20Codexa." target="_blank" rel="noopener">
+      Solicitar orçamento
+      <span>↗</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" aria-label="Menu mobile">
+    <a href="#projetos">Projetos</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#processo">Processo</a>
+    <a href="#contato">Contato</a>
+    <a href="https://wa.me/5548988512030" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="projetos">
+      <div class="hero-content reveal">
+        <p class="eyebrow"><span></span> Portfólio Codexa</p>
+        <h1>Sites que transformam ideias em <strong>presença digital.</strong></h1>
+        <p class="hero-text">Uma galeria minimalista com alguns projetos desenvolvidos para diferentes nichos, estilos e objetivos de negócio.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#galeria">Ver projetos <span>↓</span></a>
+          <a class="btn btn-secondary" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20vi%20a%20galeria%20de%20sites%20da%20Codexa%20e%20quero%20um%20projeto." target="_blank" rel="noopener">Criar meu site <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="hero-preview reveal">
+        <article class="featured-window">
+          <div class="window-top">
+            <span></span><span></span><span></span>
+            <small>Projeto em destaque</small>
+          </div>
+          <img src="assets/morais-associados.png" alt="Preview do site Morais & Associados" />
+          <div class="featured-info">
+            <div>
+              <p>Morais & Associados</p>
+              <small>Advocacia institucional</small>
+            </div>
+            <a href="#galeria" aria-label="Ver galeria">↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="metrics reveal" aria-label="Números da Codexa">
+      <div>
+        <strong>04</strong>
+        <span>Projetos selecionados</span>
+      </div>
+      <div>
+        <strong>04</strong>
+        <span>Nichos diferentes</span>
+      </div>
+      <div>
+        <strong>100%</strong>
+        <span>Foco em presença online</span>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="galeria">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> Galeria</p>
+        <h2>Projetos criados para marcas com diferentes objetivos.</h2>
+        <p>Filtre por segmento e explore os modelos que já fazem parte do portfólio da Codexa.</p>
+      </div>
+
+      <div class="filters reveal" role="list" aria-label="Filtros de projetos">
+        <button class="filter active" data-filter="todos" type="button">Todos</button>
+        <button class="filter" data-filter="advocacia" type="button">Advocacia</button>
+        <button class="filter" data-filter="restaurante" type="button">Restaurante</button>
+        <button class="filter" data-filter="clinica" type="button">Clínica</button>
+        <button class="filter" data-filter="joias" type="button">Joias</button>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal" data-category="advocacia">
+          <div class="project-image">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <img src="assets/morais-associados.png" alt="Site Morais & Associados" />
+          </div>
+          <div class="project-info">
+            <div class="project-icon">⚖</div>
+            <div>
+              <h3>Morais & Associados</h3>
+              <p>Site institucional para escritório de advocacia, com estética sóbria, autoridade e elegância.</p>
+              <span>Advocacia</span>
+            </div>
+            <a href="https://morais-e-associados.vercel.app/" target="_blank" rel="noopener" aria-label="Abrir projeto Morais & Associados">↗</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal project-card--wide" data-category="restaurante">
+          <div class="project-image">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <img src="assets/praticita.png" alt="Site Praticità restaurante italiano" />
+          </div>
+          <div class="project-info">
+            <div class="project-icon">🍝</div>
+            <div>
+              <h3>Praticità</h3>
+              <p>Experiência digital para restaurante italiano, com foco em reservas, cardápio e atmosfera acolhedora.</p>
+              <span>Restaurante</span>
+            </div>
+            <a href="#" aria-label="Abrir projeto Praticità">↗</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="clinica">
+          <div class="project-image">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <img src="assets/odonto-prime.png" alt="Site Odonto Prime Clínica Odontológica" />
+          </div>
+          <div class="project-info">
+            <div class="project-icon">✦</div>
+            <div>
+              <h3>Odonto Prime</h3>
+              <p>Site para clínica odontológica moderna, humanizada e focada em conversão para agendamentos.</p>
+              <span>Clínica odontológica</span>
+            </div>
+            <a href="#" aria-label="Abrir projeto Odonto Prime">↗</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal project-card--wide" data-category="joias">
+          <div class="project-image">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <img src="assets/essenza-joias.png" alt="Site Essenza Joias" />
+          </div>
+          <div class="project-info">
+            <div class="project-icon">◇</div>
+            <div>
+              <h3>Essenza Joias</h3>
+              <p>Landing page premium para marca de semijoias, com sofisticação, delicadeza e chamada para coleção.</p>
+              <span>Semijoias</span>
+            </div>
+            <a href="#" aria-label="Abrir projeto Essenza Joias">↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="process" id="processo">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> Processo</p>
+        <h2>Como transformamos referências em sites prontos para vender.</h2>
+      </div>
+
+      <div class="process-grid">
+        <article class="step reveal">
+          <span>01</span>
+          <h3>Estratégia</h3>
+          <p>Entendemos o nicho, o público e o objetivo principal do site antes de desenhar a experiência.</p>
+        </article>
+        <article class="step reveal">
+          <span>02</span>
+          <h3>Design</h3>
+          <p>Criamos uma interface moderna, responsiva e alinhada com a identidade da marca.</p>
+        </article>
+        <article class="step reveal">
+          <span>03</span>
+          <h3>Implementação</h3>
+          <p>Desenvolvemos o site com HTML, CSS e JS, buscando performance, animações e acabamento premium.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta reveal" id="contato">
+      <div>
+        <span class="cta-icon">↗</span>
+        <h2>Quer fazer parte dessa galeria?</h2>
+        <p>Vamos criar um site moderno, rápido e com a cara da sua marca.</p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/5548988512030?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20para%20minha%20marca." target="_blank" rel="noopener">
+        Falar com especialista
+        <span>↗</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#topo" class="brand brand--logo" aria-label="Voltar para o topo">
+      <img src="assets/codexa_logo_200px.svg" alt="Codexa" />
+    </a>
+    <p>© 2026 Codexa. Criado para marcas que querem se destacar.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
