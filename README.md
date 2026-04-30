@@ -79,3 +79,27 @@ window.CODEXA_GALLERY_API = {
 ## Observação importante
 
 A API deve liberar CORS para o domínio onde essa página será publicada. No `.env` da API, use `CORS_ORIGIN=*` para teste ou configure o domínio real da Codexa em produção.
+
+## Filtro pela URL
+
+A galeria agora aceita filtro direto pela URL. Use o parâmetro `filtro` com o slug da categoria:
+
+```txt
+/galeria?filtro=advocacia#galeria
+/galeria?filtro=restaurantes#galeria
+/galeria?filtro=clinicas-odontologicas#galeria
+```
+
+Também funciona com os aliases `filter`, `categoria`, `segmento` e `nicho`, por exemplo:
+
+```txt
+/galeria?categoria=advocacia#galeria
+```
+
+Ao clicar em um filtro da galeria, a URL é atualizada automaticamente. Assim você pode copiar o link e redirecionar o usuário direto para a categoria filtrada.
+
+Para mostrar todos os sites novamente, use:
+
+```txt
+/galeria#galeria
+```

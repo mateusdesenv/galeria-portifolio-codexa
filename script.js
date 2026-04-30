@@ -346,7 +346,120 @@ const renderFilters = (items) => {
   applyPressFeedback(galleryFilters.querySelectorAll(".filter"));
 };
 
+const URL_FILTER_PARAM = "filtro";
+const URL_FILTER_ALIASES = [URL_FILTER_PARAM, "filter", "categoria", "segmento", "nicho"];
+const DEFAULT_FILTER = "todos";
+const ALL_FILTER_ALIASES = new Set([DEFAULT_FILTER, "todos-os-sites", "todos-os-projetos", "all", "sites"]);
+
+const getUrlFilterValue = () => {
+  const params = new URLSearchParams(window.location.search);
+  const directValue = URL_FILTER_ALIASES.map((key) => params.get(key)).find(Boolean);
+
+  if (directValue) {
+    return directValue;
+  }
+
+  const hash = window.location.hash || "";
+  const hashQuery = hash.includes("?") ? hash.slice(hash.indexOf("?") + 1) : "";
+
+  if (!hashQuery) {
+    return "";
+  }
+
+  const hashParams = new URLSearchParams(hashQuery);
+  return URL_FILTER_ALIASES.map((key) => hashParams.get(key)).find(Boolean) || "";
+};
+
+const getFilterFromUrl = () => {
+  const filter = toFilterKey(getUrlFilterValue());
+  return !filter || ALL_FILTER_ALIASES.has(filter) ? DEFAULT_FILTER : filter;
+};
+
+const hasUrlFilter = () => Boolean(getUrlFilterValue());
+
+const findAvailableFilter = (filter) => {
+  const requestedFilter = toFilterKey(filter);
+  const buttons = [...(galleryFilters?.querySelectorAll(".filter") || [])];
+
+  if (!requestedFilter || ALL_FILTER_ALIASES.has(requestedFilter)) {
+    return DEFAULT_FILTER;
+  }
+
+  const exactMatch = buttons.find((button) => button.dataset.filter === requestedFilter);
+
+  if (exactMatch) {
+    return exactMatch.dataset.filter;
+  }
+
+  const labelMatch = buttons.find((button) => toFilterKey(button.textContent) === requestedFilter);
+  return labelMatch?.dataset.filter || DEFAULT_FILTER;
+};
+
+const updateFilterUrl = (filter, { replace = false } = {}) => {
+  if (!window.history?.pushState) return;
+
+  const url = new URL(window.location.href);
+
+  URL_FILTER_ALIASES.forEach((key) => url.searchParams.delete(key));
+
+  if (filter && filter !== DEFAULT_FILTER) {
+    url.searchParams.set(URL_FILTER_PARAM, filter);
+  }
+
+  url.hash = "galeria";
+
+  const nextUrl = `${url.pathname}${url.search}${url.hash}`;
+
+  if (nextUrl === `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+    return;
+  }
+
+  window.history[replace ? "replaceState" : "pushState"]({ galleryFilter: filter }, "", nextUrl);
+};
+
+const scrollToGallery = () => {
+  document.querySelector("#galeria")?.scrollIntoView({
+    behavior: canAnimate ? "smooth" : "auto",
+    block: "start"
+  });
+};
+
+const applyGalleryFilter = (filter, options = {}) => {
+  const { updateUrl = false, replaceUrl = false, shouldScroll = false } = options;
+  const selectedFilter = findAvailableFilter(filter);
+  const cards = [...(galleryGrid?.querySelectorAll(".project-card") || [])];
+  const buttons = [...(galleryFilters?.querySelectorAll(".filter") || [])];
+
+  buttons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.filter === selectedFilter);
+  });
+
+  cards.forEach((card) => {
+    const shouldShow = selectedFilter === DEFAULT_FILTER || card.dataset.category === selectedFilter;
+    card.classList.toggle("hidden", !shouldShow);
+  });
+
+  if (updateUrl) {
+    updateFilterUrl(selectedFilter, { replace: replaceUrl });
+  }
+
+  animateVisibleCards();
+
+  if (shouldScroll) {
+    window.setTimeout(scrollToGallery, 80);
+  }
+};
+
+const applyFilterFromUrl = ({ replaceUrl = true, shouldScroll = false } = {}) => {
+  applyGalleryFilter(getFilterFromUrl(), {
+    updateUrl: hasUrlFilter(),
+    replaceUrl,
+    shouldScroll
+  });
+};
+
 const animateVisibleCards = () => {
+
   const cards = galleryGrid?.querySelectorAll(".project-card:not(.hidden)") || [];
 
   cards.forEach((card, index) => {
@@ -365,17 +478,7 @@ const animateVisibleCards = () => {
 const bindFilterEvents = () => {
   galleryFilters?.querySelectorAll(".filter").forEach((button) => {
     button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-
-      galleryFilters.querySelectorAll(".filter").forEach((item) => item.classList.remove("active"));
-      button.classList.add("active");
-
-      galleryGrid?.querySelectorAll(".project-card").forEach((card) => {
-        const shouldShow = filter === "todos" || card.dataset.category === filter;
-        card.classList.toggle("hidden", !shouldShow);
-      });
-
-      animateVisibleCards();
+      applyGalleryFilter(button.dataset.filter, { updateUrl: true });
     });
   });
 };
@@ -401,7 +504,10 @@ const renderGallery = (items) => {
   observeReveal(galleryGrid);
   bindTiltHints(galleryGrid.querySelectorAll(".project-card"));
   applyPressFeedback(document.querySelectorAll(".btn, .header-cta, .filter"));
-  animateVisibleCards();
+  applyFilterFromUrl({
+    replaceUrl: true,
+    shouldScroll: hasUrlFilter() || window.location.hash.startsWith("#galeria")
+  });
 };
 
 const loadGalleryProjects = async () => {
@@ -467,4 +573,9 @@ const applyPressFeedback = (elements) => {
 
 bindTiltHints(document.querySelectorAll(".featured-window"));
 applyPressFeedback(document.querySelectorAll(".btn, .header-cta, .filter"));
+
+window.addEventListener("popstate", () => {
+  applyFilterFromUrl({ replaceUrl: false });
+});
+
 loadGalleryProjects();
