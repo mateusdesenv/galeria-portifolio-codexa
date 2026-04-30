@@ -81,11 +81,11 @@
 
     <section class="metrics reveal premium-hover" aria-label="Números da Codexa">
       <div>
-        <strong>04</strong>
+        <strong data-project-count>00</strong>
         <span>Projetos selecionados</span>
       </div>
       <div>
-        <strong>04</strong>
+        <strong data-niche-count>00</strong>
         <span>Nichos diferentes</span>
       </div>
       <div>
@@ -101,79 +101,22 @@
         <p>Filtre por segmento e explore os modelos que já fazem parte do portfólio da Codexa.</p>
       </div>
 
-      <div class="filters reveal" role="list" aria-label="Filtros de projetos">
+      <div class="filters reveal" id="galleryFilters" role="list" aria-label="Filtros de projetos">
         <button class="filter magnetic active" data-filter="todos" type="button">Todos</button>
-        <button class="filter magnetic" data-filter="advocacia" type="button">Advocacia</button>
-        <button class="filter magnetic" data-filter="restaurante" type="button">Restaurante</button>
-        <button class="filter magnetic" data-filter="clinica" type="button">Clínica</button>
-        <button class="filter magnetic" data-filter="joias" type="button">Joias</button>
       </div>
 
-      <div class="project-grid">
-        <article class="project-card reveal tilt-card" data-tilt data-category="advocacia">
-          <div class="project-image">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <img src="assets/morais-associados.png" alt="Site Morais & Associados" />
-          </div>
-          <div class="project-info">
-            <div class="project-icon">⚖</div>
-            <div>
-              <h3>Morais & Associados</h3>
-              <p>Site institucional para escritório de advocacia, com estética sóbria, autoridade e elegância.</p>
-              <span>Advocacia</span>
-            </div>
-            <a href="https://morais-e-associados.vercel.app/" target="_blank" rel="noopener" aria-label="Abrir projeto Morais & Associados">↗</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal project-card--wide tilt-card" data-tilt data-category="restaurante">
-          <div class="project-image">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <img src="assets/praticita.png" alt="Site Praticità restaurante italiano" />
-          </div>
-          <div class="project-info">
-            <div class="project-icon">🍝</div>
-            <div>
-              <h3>Praticità</h3>
-              <p>Experiência digital para restaurante italiano, com foco em reservas, cardápio e atmosfera acolhedora.</p>
-              <span>Restaurante</span>
-            </div>
-            <a href="#" aria-label="Abrir projeto Praticità">↗</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal tilt-card" data-tilt data-category="clinica">
-          <div class="project-image">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <img src="assets/odonto-prime.png" alt="Site Odonto Prime Clínica Odontológica" />
-          </div>
-          <div class="project-info">
-            <div class="project-icon">✦</div>
-            <div>
-              <h3>Odonto Prime</h3>
-              <p>Site para clínica odontológica moderna, humanizada e focada em conversão para agendamentos.</p>
-              <span>Clínica odontológica</span>
-            </div>
-            <a href="#" aria-label="Abrir projeto Odonto Prime">↗</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal project-card--wide tilt-card" data-tilt data-category="joias">
-          <div class="project-image">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <img src="assets/essenza-joias.png" alt="Site Essenza Joias" />
-          </div>
-          <div class="project-info">
-            <div class="project-icon">◇</div>
-            <div>
-              <h3>Essenza Joias</h3>
-              <p>Landing page premium para marca de semijoias, com sofisticação, delicadeza e chamada para coleção.</p>
-              <span>Semijoias</span>
-            </div>
-            <a href="#" aria-label="Abrir projeto Essenza Joias">↗</a>
-          </div>
-        </article>
+      <div class="gallery-status reveal" id="galleryStatus" role="status" aria-live="polite">
+        <span></span>
+        <p>Carregando projetos da galeria...</p>
       </div>
+
+      <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+
+      <noscript>
+        <div class="gallery-status gallery-status--error">
+          <p>Ative o JavaScript para carregar a galeria de projetos.</p>
+        </div>
+      </noscript>
     </section>
 
     <section class="process" id="processo">
@@ -221,6 +164,7 @@
     <p>© 2026 Codexa. Criado para marcas que querem se destacar.</p>
   </footer>
 
+  <script src="portfolio-api.config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
