@@ -11,7 +11,7 @@
   O projeto em destaque da primeira seção permanece fixo no HTML.
 */
 window.CODEXA_GALLERY_API = {
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://codexa-portifolio-api.vercel.app",
   publicPath: "/api/v1/portfolio-items",
   status: "published",
   featuredOnly: false,
